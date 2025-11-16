@@ -1,0 +1,29 @@
+{
+  "last_updated": "2025-11-16T08:30:00Z",
+  "events": [
+    {
+      "title": "Cardiology Grand Rounds",
+      "institution": "Yale School of Medicine",
+      "department": "Cardiology",
+      "speaker": "Dr. Jane Doe",
+      "region": "New England",
+      "state": "CT",
+      "date_time": "2025-11-20T08:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "https://yale.cloud-cme.com/course/courseoverview?P=0&EID=12345",
+      "source_link": "https://medicine.yale.edu/intmed/cardio/grandrounds/"
+    },
+    {
+      "title": "Oncology Grand Rounds: New Therapies",
+      "institution": "Massachusetts General Hospital (Harvard)",
+      "department": "Oncology",
+      "speaker": "Dr. John Smith",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-11-21T12:00:00-05:00",
+      "cme_available": false,
+      "cme_link": null,
+      "source_link": "https://www.massgeneral.org/cancer-center/education/grand-rounds"
+    }
+  ]
+}

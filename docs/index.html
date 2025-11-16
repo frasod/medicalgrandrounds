@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Rounds Aggregator</title>
+    <meta name="description" content="A central hub for medical Grand Rounds schedules from leading institutions.">
+    <!-- Basic Styling -->
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 960px; margin: 20px auto; padding: 0 15px; }
+        header, footer { text-align: center; margin-bottom: 20px; }
+        .filters, .monetization { background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .filters select, .filters input { padding: 8px; margin-right: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .event-card { border: 1px solid #eee; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .event-card h3 { margin-top: 0; }
+        .event-card .institution { font-weight: bold; color: #555; }
+        .event-card .details { font-size: 0.9em; color: #777; }
+        .event-card .links a { margin-right: 15px; text-decoration: none; }
+        .loader { text-align: center; padding: 40px; }
+        .hidden { display: none; }
+    </style>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Frontend Logic -->
+    <script src="script.js" defer></script>
+</head>
+<body x-data="grandRoundsApp()">
+    <header>
+        <h1>Grand Rounds Aggregator</h1>
+        <p>Your national hub for medical education schedules.</p>
+        <p style="font-size: 0.8em; color: #888;">Last Updated: <span x-text="lastUpdated"></span></p>
+    </header>
+
+    <!-- Monetization Slot 1: Top Banner (Affiliate/Sponsor) -->
+    <div class="monetization" id="top-banner-ad">
+        <strong>Featured Partner:</strong> <a href="https://www.uptodate.com/..." target="_blank" rel="sponsored">Get UpToDate - The leading clinical decision support resource.</a>
+    </div>
+
+    <!-- Filter UI -->
+    <div class="filters">
+        <select x-model="filter.region" @change="applyFilters">
+            <option value="">All Regions</option>
+            <template x-for="region in unique.regions" :key="region">
+                <option :value="region" x-text="region"></option>
+            </template>
+        </select>
+        <select x-model="filter.state" @change="applyFilters">
+            <option value="">All States</option>
+            <template x-for="state in unique.states" :key="state">
+                <option :value="state" x-text="state"></option>
+            </template>
+        </select>
+        <input type="text" x-model.debounce.300ms="filter.keyword" @input="applyFilters" placeholder="Search by title, speaker...">
+    </div>
+
+    <!-- Loading State -->
+    <div class="loader" x-show="isLoading">
+        <p>Loading events...</p>
+    </div>
+
+    <!-- Event List -->
+    <main id="event-list" x-show="!isLoading">
+        <template x-for="event in filteredEvents" :key="event.source_link + event.date_time">
+            <div class="event-card">
+                <h3 x-text="event.title"></h3>
+                <p class="institution" x-text="event.institution"></p>
+                <p class="details">
+                    <span x-text="formatDate(event.date_time)"></span> | 
+                    <span x-text="event.speaker ? `Speaker: ${event.speaker}` : ''"></span>
+                </p>
+                <p class="links">
+                    <a :href="event.source_link" target="_blank">Source</a>
+                    <a x-show="event.cme_link" :href="event.cme_link" target="_blank">CME Info</a>
+                </p>
+            </div>
+        </template>
+        <!-- No Results Message -->
+        <div x-show="filteredEvents.length === 0">
+            <p>No events match your current filters.</p>
+        </div>
+    </main>
+
+    <!-- Monetization Slot 2: In-line Ad (Contextual Ad Network) -->
+    <div class="monetization" id="inline-ad-block" style="margin-top: 30px; text-align: center;">
+        <!-- Placeholder for Google AdSense or similar -->
+        <p>Advertisement</p>
+        <img src="https://via.placeholder.com/728x90.png?text=Contextual+Ad+Slot" alt="Advertisement" />
+    </div>
+
+    <footer>
+        <p>&copy; <span x-text="new Date().getFullYear()"></span> Grand Rounds Aggregator. All rights reserved.</p>
+    </footer>
+</body>
+</html>
