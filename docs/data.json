@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-17T02:19:00.560794+00:00",
+  "last_updated": "2025-11-17T03:18:26.219646+00:00",
   "events": [
     {
       "title": "Integrative Medicine Grand Rounds",
@@ -302,6 +302,78 @@
       "source_link": "https://oshercenter.org/im-grand-rounds/"
     },
     {
+      "title": "Neurology Grand Rounds",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Rohit Bakshi, M.D.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-10-08T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
+      "title": "Neurology Grand Rounds",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Stephen L. Hauser, M.D., Ph.D.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-10-16T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
+      "title": "Neurology Grand Rounds",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Ricardo Mouro Pinto, PhD.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-10-22T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
+      "title": "Neurology Grand Rounds",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Vikram Khurana, M.D., Ph.D.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-10-29T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
+      "title": "Baer Lecture",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "David Arciniegas, M.D.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-11-05T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
+      "title": "Martin A. Samuels Lecture",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "S. Andrew Josephson, M.D.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-11-12T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
       "title": "Addressing the Emerging Challenges of Alpha-2 Agonist Adulteration of Illicit Opioids",
       "institution": "Yale School of Medicine",
       "department": "Addiction Medicine",
@@ -326,6 +398,18 @@
       "source_link": "https://medicine.yale.edu/internal-medicine/genmed/education/medspirel/calendar/"
     },
     {
+      "title": "Neurology Grand Rounds",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Prof. Helen Cross",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-11-19T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
       "title": "Evidence Based Gardening: A Counterintuitive Approach to Complex Wound Care",
       "institution": "Yale School of Medicine",
       "department": "General Internal Medicine",
@@ -336,6 +420,18 @@
       "cme_available": true,
       "cme_link": "https://medicine.yale.edu/internal-medicine/genmed/education/medspirel/calendar/",
       "source_link": "https://medicine.yale.edu/internal-medicine/genmed/education/medspirel/calendar/"
+    },
+    {
+      "title": "Free Clinics and Academic Health Centers: Forging the Future Care of Underserved Populations",
+      "institution": "Dartmouth Hitchcock Medical Center",
+      "department": "Medicine",
+      "speaker": "Mohan Nadkarni",
+      "region": "New England",
+      "state": "NH",
+      "date_time": "2025-11-21T08:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850",
+      "source_link": "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850"
     },
     {
       "title": "ACR Review",
@@ -362,17 +458,40 @@
       "source_link": "https://medicine.yale.edu/internal-medicine/genmed/education/medspirel/calendar/"
     },
     {
+      "title": "RDA Lecture",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Randy Schekman, M.D., Ph.D.",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-12-03T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
+      "title": "NEJM Case Record of the MGH",
+      "institution": "Brigham and Women's Hospital",
+      "department": "Neurology",
+      "speaker": "Various",
+      "region": "New England",
+      "state": "MA",
+      "date_time": "2025-12-17T12:00:00-05:00",
+      "cme_available": true,
+      "cme_link": "mailto:PartnersCPD@partners.org",
+      "source_link": "https://www.brighamandwomens.org/neurology/neurology-grand-rounds"
+    },
+    {
       "title": "Medicine Grand Rounds",
       "institution": "Dartmouth Hitchcock Medical Center",
-      "department": "Department of Medicine",
+      "department": "Medicine",
       "speaker": "Various Speakers",
       "region": "New England",
       "state": "NH",
       "date_time": "Fridays 8:00-9:00 AM EST (Recurring)",
       "cme_available": true,
-      "cme_link": "https://www.dartmouth-hitchcock.org/health-care-professionals/medicine-grand-rounds",
-      "source_link": "https://www.dartmouth-hitchcock.org/health-care-professionals/medicine-grand-rounds",
-      "webex_link": "https://dhmc.webex.com/dhmc/j.php?MTID=mc03faf39f88fe8b74cd20b47a03f27a9"
+      "cme_link": "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850",
+      "source_link": "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850"
     },
     {
       "title": "Medical Grand Rounds",

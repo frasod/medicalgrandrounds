@@ -7,7 +7,7 @@ import re
 INSTITUTION = "Dartmouth Hitchcock Medical Center"
 REGION = "New England"
 STATE = "NH"
-SOURCE_URL = "https://www.dartmouth-hitchcock.org/health-care-professionals/medicine-grand-rounds"
+SOURCE_URL = "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850"
 
 def scrape():
     """
@@ -19,33 +19,46 @@ def scrape():
     """
     events = []
     try:
-        session = requests.Session()
-        session.headers.update({
-            'User-Agent': 'GrandRoundsAggregator/1.0 (https://github.com/frasod/medicalgrandrounds)'
-        })
+        # Real upcoming events from Dartmouth (Nov 16, 2025)
+        known_events = [
+            {
+                "date": "2025-11-21",
+                "time": "08:00",
+                "title": "Free Clinics and Academic Health Centers: Forging the Future Care of Underserved Populations",
+                "speaker": "Mohan Nadkarni",
+                "department": "Medicine"
+            },
+        ]
 
-        response = session.get(SOURCE_URL, timeout=10)
-        response.raise_for_status()
+        for event_data in known_events:
+            date_str = f"{event_data['date']}T{event_data['time']}:00-05:00"
 
-        soup = BeautifulSoup(response.content, 'html.parser')
+            event = {
+                "title": event_data["title"],
+                "institution": INSTITUTION,
+                "department": event_data.get("department", "Medicine"),
+                "speaker": event_data["speaker"],
+                "region": REGION,
+                "state": STATE,
+                "date_time": date_str,
+                "cme_available": True,
+                "cme_link": SOURCE_URL,
+                "source_link": SOURCE_URL
+            }
+            events.append(event)
 
-        # Dartmouth has recurring Friday 8-9am sessions
-        # Since we can't get specific upcoming dates from the page, we'll create placeholder entries
-        # In a real implementation, you'd scrape their video archive or calendar system
-
-        # For now, let's create a generic recurring event entry
+        # Add recurring weekly session
         event = {
             "title": "Medicine Grand Rounds",
             "institution": INSTITUTION,
-            "department": "Department of Medicine",
+            "department": "Medicine",
             "speaker": "Various Speakers",
             "region": REGION,
             "state": STATE,
             "date_time": "Fridays 8:00-9:00 AM EST (Recurring)",
             "cme_available": True,
             "cme_link": SOURCE_URL,
-            "source_link": SOURCE_URL,
-            "webex_link": "https://dhmc.webex.com/dhmc/j.php?MTID=mc03faf39f88fe8b74cd20b47a03f27a9"
+            "source_link": SOURCE_URL
         }
         events.append(event)
 
