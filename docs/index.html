@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New England Medical Grand Rounds</title>
+    <title>Medical Grand Rounds - Nationwide Livestreaming</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 960px; margin: 20px auto; padding: 0 15px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 20px auto; padding: 0 15px; }
         header, footer { text-align: center; margin-bottom: 20px; }
-        .filters { background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .filters select, .filters input { padding: 8px; margin-right: 10px; border: 1px solid #ddd; border-radius: 4px; }
-        .event-card { border: 1px solid #eee; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .event-card h3 { margin-top: 0; }
+        .filters { background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        .filters select, .filters input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .filters .checkbox-group { display: flex; align-items: center; gap: 5px; }
+        .event-card { border: 1px solid #eee; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: relative; }
+        .event-card.livestream { border-left: 4px solid #0066cc; background-color: #f8fbff; }
+        .event-card h3 { margin-top: 0; padding-right: 100px; }
         .event-card .institution { font-weight: bold; color: #555; }
-        .event-card .details { font-size: 0.9em; color: #777; }
+        .event-card .details { font-size: 0.9em; color: #777; line-height: 1.8; }
         .event-card .links a { margin-right: 15px; text-decoration: none; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 8px; }
+        .badge.livestream { background-color: #0066cc; color: white; }
+        .badge.zoom { background-color: #2d8cff; color: white; }
+        .badge.cme { background-color: #28a745; color: white; }
+        .format-info { margin-top: 8px; padding: 8px; background-color: #e8f4ff; border-radius: 4px; font-size: 0.85em; }
+        .zoom-info { margin-top: 5px; font-family: monospace; font-size: 0.85em; color: #0066cc; }
+        .livestream-badge-corner { position: absolute; top: 15px; right: 15px; background-color: #ff4444; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.75em; font-weight: bold; }
     </style>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -22,6 +31,7 @@
     loading: true,
     stateFilter: '',
     searchTerm: '',
+    livestreamOnly: false,
 
     init() {
         fetch('data.json')
@@ -108,6 +118,10 @@
             }
         });
 
+        if (this.livestreamOnly) {
+            result = result.filter(e => e.livestream_available === true);
+        }
+
         if (this.stateFilter) {
             result = result.filter(e => e.state === this.stateFilter);
         }
@@ -129,8 +143,9 @@
     }
 }">
     <header>
-        <h1>New England Medical Grand Rounds</h1>
-        <p>Your hub for New England medical education schedules.</p>
+        <h1>🎥 Medical Grand Rounds - Nationwide Livestreaming</h1>
+        <p>Attend grand rounds from top medical centers across the country - all from your computer</p>
+        <p style="font-size: 0.9em; color: #666;">Featuring Johns Hopkins, Duke, Mayo Clinic, University of Utah, Wisconsin, MUSC, and more</p>
     </header>
 
     <div class="filters">
@@ -141,6 +156,10 @@
             </template>
         </select>
         <input type="text" x-model="searchTerm" placeholder="Search...">
+        <div class="checkbox-group">
+            <input type="checkbox" id="livestream-only" x-model="livestreamOnly">
+            <label for="livestream-only">🎥 Livestream Only</label>
+        </div>
         <span x-text="'(' + filteredEvents.length + ' events)'"></span>
     </div>
 
@@ -148,17 +167,29 @@
 
     <main x-show="!loading">
         <template x-for="event in filteredEvents" :key="event.title + event.date_time">
-            <div class="event-card">
+            <div class="event-card" :class="{ 'livestream': event.livestream_available }">
+                <div x-show="event.livestream_available" class="livestream-badge-corner">🔴 LIVE</div>
                 <h3 x-text="event.title"></h3>
+                <div>
+                    <span x-show="event.livestream_available" class="badge livestream">🎥 Livestream</span>
+                    <span x-show="event.zoom_available" class="badge zoom">Zoom</span>
+                    <span x-show="event.cme_available" class="badge cme">CME</span>
+                </div>
                 <p class="institution" x-text="event.institution"></p>
                 <p class="details">
                     <strong>When:</strong> <span x-text="formatDate(event.date_time)"></span><br>
                     <strong>Speaker:</strong> <span x-text="event.speaker || 'TBA'"></span><br>
-                    <strong>Department:</strong> <span x-text="event.department || 'N/A'"></span>
+                    <strong>Department:</strong> <span x-text="event.department || 'N/A'"></span><br>
+                    <span x-show="event.format"><strong>Format:</strong> <span x-text="event.format"></span></span>
                 </p>
-                <p class="links">
-                    <a :href="event.source_link" target="_blank">More Info</a>
-                    <span x-show="event.cme_available"> | <strong>CME Available</strong></span>
+                <div x-show="event.zoom_info" class="format-info">
+                    <strong>🔗 Access:</strong> <span x-text="event.zoom_info"></span>
+                </div>
+                <div x-show="event.notes" class="details" style="margin-top: 8px;">
+                    <em x-text="event.notes"></em>
+                </div>
+                <p class="links" style="margin-top: 12px;">
+                    <a :href="event.source_link" target="_blank" style="font-weight: bold;">📅 More Info & Schedule</a>
                 </p>
             </div>
         </template>
@@ -168,7 +199,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 New England Medical Grand Rounds</p>
+        <p>&copy; 2025 Medical Grand Rounds - Nationwide Livestreaming</p>
+        <p style="font-size: 0.85em; color: #666;">Last updated: <span x-text="new Date().toLocaleDateString()"></span></p>
     </footer>
 </body>
 </html>
