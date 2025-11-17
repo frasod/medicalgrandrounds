@@ -1,0 +1,60 @@
+Subject: Grand Rounds Schedule Request - New England Medical Grand Rounds Aggregator
+
+Dear [CONTACT_NAME],
+
+I hope this email finds you well. I'm reaching out from the New England Medical Grand Rounds project (medicalgrandrounds.org), a free public service that aggregates grand rounds schedules from major academic medical centers across New England.
+
+We'd like to include your upcoming grand rounds lectures in our calendar. Could you please provide the following information for your next 4-6 scheduled sessions?
+
+---
+
+LECTURE 1:
+Date: [MM/DD/YYYY]
+Time: [HH:MM AM/PM]
+Title: [Full lecture title]
+Speaker: [Speaker Name, MD/PhD]
+Department: [Department name]
+CME Available: [Yes/No]
+Registration/Info Link: [URL if applicable]
+
+LECTURE 2:
+Date: 
+Time: 
+Title: 
+Speaker: 
+Department: 
+CME Available: 
+Registration/Info Link: 
+
+LECTURE 3:
+Date: 
+Time: 
+Title: 
+Speaker: 
+Department: 
+CME Available: 
+Registration/Info Link: 
+
+LECTURE 4:
+Date: 
+Time: 
+Title: 
+Speaker: 
+Department: 
+CME Available: 
+Registration/Info Link: 
+
+---
+
+Simply reply to this email with the information filled in, or feel free to attach your current schedule.
+
+We'll credit your institution on our website and link directly to your registration pages. This service helps trainees, faculty, and healthcare professionals across New England discover educational opportunities.
+
+Thank you for your time!
+
+Best regards,
+[YOUR_NAME]
+New England Medical Grand Rounds
+https://github.com/frasod/medicalgrandrounds
+
+P.S. If you'd prefer automated updates, please let us know if you have an RSS feed or API we can use.

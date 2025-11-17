@@ -1,0 +1,18 @@
+{
+  "comment": "Manually curated upcoming grand rounds events. Add events here when you find them on institutional websites.",
+  "last_updated": "2025-11-16",
+  "events": [
+    {
+      "title": "Free Clinics and Academic Health Centers",
+      "speaker": "Mohan Nadkarni",
+      "date_time": "2025-11-21T08:00:00-05:00",
+      "institution": "Dartmouth Hitchcock Medical Center",
+      "department": "Medicine",
+      "state": "NH",
+      "region": "New England",
+      "cme_available": true,
+      "source_link": "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850",
+      "cme_link": "https://dh.cloud-cme.com/default.aspx?P=6&EID=150850"
+    }
+  ]
+}
